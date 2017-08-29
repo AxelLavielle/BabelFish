@@ -29,7 +29,7 @@ void						Core::usage(const char * const& binary) const
   std::cout << "Levels: 0 - TRACE ; 1 - DEBUG ; 2 - INFO ; 3 - WARNING ; 4 - ERROR ; 5 - FATAL" << std::endl;
   std::cout << "'--help' or '-h' Display current helper." << std::endl;
   std::cout << "'--view VIEWER' or '-v' Allows the user to choose the type of view he wants." << std::endl;
-  std::cout << "Displays possbilites are: 0 - TERMINAL ; 1 - NCURSES ; 2 - GRAPHICAL ; (1 & 2 are currently in developement), default value is 0 but will be 1" << std::endl;
+  std::cout << "Displays possbilites are: 0 - TERMINAL ; 1 - NCURSES ; 2 - GRAPHICAL ; (1 & 2 are currently in developement), default value is 1" << std::endl;
   exit(1);
 }
 
