@@ -11,12 +11,12 @@ Actually contains:
 
 Usage for ./BabelFish:
 no required arguments, here are the optional arguments:
-'--speed TIMEINMS' or '-s' Maximum speed for refresh, Default value is 1.
-'--timestamp_begin TIME' or '-tb' Minimum timestamp of display.
-'--timestamp_end TIME' or '-te' Maximum timestamp of display.
-'--component COMPONENT' or '-c' Add the component to the list of display, default is all.
-'--severity SEVERITY' or '-e' Put a severity level in OFF mode and doesn't display it anymore.
+- '--speed TIMEINMS' or '-s' Maximum speed for refresh, Default value is 1.
+- '--timestamp_begin TIME' or '-tb' Minimum timestamp of display.
+- '--timestamp_end TIME' or '-te' Maximum timestamp of display.
+- '--component COMPONENT' or '-c' Add the component to the list of display, default is all.
+- '--severity SEVERITY' or '-e' Put a severity level in OFF mode and doesn't display it anymore.
 Levels: 0 - TRACE ; 1 - DEBUG ; 2 - INFO ; 3 - WARNING ; 4 - ERROR ; 5 - FATAL
-'--help' or '-h' Display current helper.
-'--view VIEWER' or '-v' Allows the user to choose the type of view he wants.
+- '--help' or '-h' Display current helper.
+- '--view VIEWER' or '-v' Allows the user to choose the type of view he wants.
 Displays possbilites are: 0 - TERMINAL ; 1 - NCURSES ; 2 - GRAPHICAL ; (1 & 2 are currently in developement), default value is 1
