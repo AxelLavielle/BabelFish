@@ -2,5 +2,10 @@
 
 int	main(int ac, char **av)
 {
-  LOG("MLD", TRACE) << "test" << 3;
+  LOG("LOESS", TRACE) << "Hello World !";
+  LOG("LOESS", DEBUG) << "Hello World !";
+  LOG("LOESS", INFO) << "Hello World !";
+  LOG("LOESS", WARNING) << "Hello World !";
+  LOG("LOESS", ERROR) << "Hello World !";
+  LOG("LOESS", FATAL) << "Hello World !";
 }
