@@ -75,6 +75,7 @@ public:
       }
     this->oss << "][" << processID << "][" << threadID << "][" << component << "]--";
   }
+
   ~Log()
   {
     std::ofstream outfile;

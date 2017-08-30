@@ -1,7 +1,7 @@
-const log = require("./log");
+const log = require("../../libs/Log");
 
-log.info("DASHBOARD", "message");
-log.debug("DASHBOARD", "message");
-log.warning("DASHBOARD", "message");
-log.error("DASHBOARD", "message");
-log.fatal("DASHBOARD", "message");
+Log.info("DASHBOARD", "message");
+Log.debug("DASHBOARD", "message");
+Log.warning("DASHBOARD", "message");
+Log.error("DASHBOARD", "message");
+Log.fatal("DASHBOARD", "message");

@@ -5,6 +5,7 @@
 *.slo
 *.lo
 *.o
+*.pyc
 *.obj
 
 # Precompiled Headers
@@ -27,6 +28,7 @@
 *.lib
 
 # Executables
+BabelFish
 *.exe
 *.out
 *.app

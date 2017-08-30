@@ -1,7 +1,7 @@
-import log
+from libs import Log
 
-log.trace("Test", "trace")
-log.debug("Test", "debug")
-log.warning("Test", "warning")
-log.error("Test", "error")
-log.fatal("Test", "fatal")
+Log.trace("Test", "trace")
+Log.debug("Test", "debug")
+Log.warning("Test", "warning")
+Log.error("Test", "error")
+Log.fatal("Test", "fatal")

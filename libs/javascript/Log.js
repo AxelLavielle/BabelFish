@@ -1,7 +1,7 @@
 var process = require('process');
 var fs = require('fs');
 
-var log = function log(severity, component, message)
+var Log = function Log(severity, component, message)
 {
     var processID = process.pid;
     var threadID = 1;
@@ -25,34 +25,34 @@ var log = function log(severity, component, message)
     });
 }
 
-log.trace = function(component, message)
+Log.trace = function(component, message)
 {
-    log("TRACE", component, message);
+    Log("TRACE", component, message);
 }
 
-log.info = function(component, message)
+Log.info = function(component, message)
 {
-    log("INFO", component, message);
+    Log("INFO", component, message);
 }
 
-log.debug = function(component, message)
+Log.debug = function(component, message)
 {
-    log("DEBUG", component, message);
+    Log("DEBUG", component, message);
 }
 
-log.warning = function(component, message)
+Log.warning = function(component, message)
 {
-    log("WARNING", component, message);
+    Log("WARNING", component, message);
 }
 
-log.error = function(component, message)
+Log.error = function(component, message)
 {
-    log("ERROR", component, message);
+    Log("ERROR", component, message);
 }
 
-log.fatal = function(component, message)
+Log.fatal = function(component, message)
 {
-    log("FATAL", component, message);
+    Log("FATAL", component, message);
 }
 
-module.exports = log;
+module.exports = Log;
