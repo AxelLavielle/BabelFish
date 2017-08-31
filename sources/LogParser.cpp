@@ -12,6 +12,7 @@ LogParser::LogParser()
   userParam.severity[3] = true;
   userParam.severity[4] = true;
   userParam.severity[5] = true;
+  userParam.lineThreshold = -1;
 }
 
 LogParser::~LogParser()

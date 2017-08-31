@@ -24,6 +24,7 @@ typedef	struct						s_flags
   long							timestamp_end;
   std::vector<std::string>				component;
   bool							severity[6];
+  int							lineThreshold;
 }							t_flags;
 
 extern	t_flags						userParam;
