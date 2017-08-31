@@ -13,10 +13,12 @@ public:
   void					parse();
   void					rotate(const std::string &path);
   const std::vector<std::string>	getFileList() const;
+  void					popLine(const std::string &path, int nline);
 
 private:
   const std::vector<std::string>	extractSep(const std::string &line, const char separator) const;
   const std::string			lineToString(const t_line &line) const;
+  int					checkTotalLine(const int nline) const;
 
   std::fstream				_file;
   std::vector<t_line>			_line;

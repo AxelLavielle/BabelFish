@@ -10,7 +10,6 @@ Rotator::~Rotator()
 
 void				Rotator::setFile(const std::string &filename)
 {
-  //try opening normally the file
   _file.open(filename.c_str(), std::ios_base::in | std::ios_base::out | std::ios_base::app);
   if (!_file.is_open())
     {
@@ -45,7 +44,6 @@ void				Rotator::parse()
     
   _file.clear();
   _file.seekg(std::ios::beg);
-  // std::getline(_file, line); // in case we have a real csv
   while (std::getline(_file, line))
     {
       t_line			extracted;
@@ -64,7 +62,7 @@ void				Rotator::parse()
   _file.close();
 }
 
-const std::string			Rotator::lineToString(const t_line &line) const
+const std::string		Rotator::lineToString(const t_line &line) const
 {
   std::ostringstream		oss;
   unsigned char			c;
@@ -81,6 +79,41 @@ const std::string			Rotator::lineToString(const t_line &line) const
     oss << ((c != 0) ? ("|") : ("")) << line.severity[c];
   oss << std::endl;
   return (oss.str());
+}
+
+int				Rotator::checkTotalLine(const int nline) const
+{
+  int				i;
+  int				tline;
+
+  if (userParam.lineThreshold == -1)
+    return (0);
+  tline = nline;
+  i = -1;
+  while (tline < userParam.lineThreshold && ++i != static_cast<int>(_line.size()))
+    tline += _line[i].severity[0] + _line[i].severity[1] + _line[i].severity[2] + _line[i].severity[3] + _line[i].severity[4] + _line[i].severity[5];
+  return (_line.size() - (i + 1));
+}
+
+void				Rotator::popLine(const std::string &path, int nline)
+{
+  std::vector<std::string>	buffer;
+  int				nToRemove;
+
+  if ((nToRemove = this->checkTotalLine(nline)) == 0)
+    return;
+  while (nToRemove-- != 0)
+    {
+      unlink(_line[nToRemove].name.c_str());
+      _line.erase(_line.begin() + nToRemove);
+    }
+  _file.open(path + "logs.csv", std::fstream::out | std::fstream::trunc);
+  while (++nToRemove != static_cast<int>(_line.size()))
+    if (nToRemove == 0)
+      _file << this->lineToString(_line[nToRemove]);
+    else
+      _file << std::endl << this->lineToString(_line[nToRemove]);
+  _file.close();
 }
 
 void				Rotator::rotate(const std::string &path)

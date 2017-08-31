@@ -84,7 +84,7 @@ void						Core::argumentsHandler(const int ac, char** const& av)
     else if ((!strcmp(av[i], "--severity") || !strcmp(av[i], "-e")) && (av[i + 1] != NULL))
       userParam.severity[atoi(av[++i])] = false;
     else if ((!strcmp(av[i], "--line") || !strcmp(av[i], "-l")) && (av[i + 1] != NULL))
-      userParam.lineThreshold = false;
+      userParam.lineThreshold = atoi(av[++i]);
     else if (!strcmp(av[i], "--delete") || !strcmp(av[i], "-d"))
       this->deleteAll("");
     else if (!strcmp(av[i], "--nolaunch") || !strcmp(av[i], "-n"))
@@ -170,8 +170,8 @@ void						Core::run()
 
       // Rotation
       if (logs.second > 380)
-      	_rotator.rotate(_filename);
-
+	_rotator.rotate(_filename);
+      _rotator.popLine(_filename, logs.second);
       // Game Loop
       _viewer->wait(start + _speed);
     }
