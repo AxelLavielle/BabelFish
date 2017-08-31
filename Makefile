@@ -1,7 +1,3 @@
-#
-## Copyright (c) 2017 Scortex SAS
-#
-
 SRCPATH		=	sources
 
 SRC		=	$(SRCPATH)/Core.cpp		\

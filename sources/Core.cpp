@@ -1,7 +1,3 @@
-/**
- ** Copyright (c) 2017 Scortex SAS
- */
-
 #include					"Core.hh"
 
 Core::Core()

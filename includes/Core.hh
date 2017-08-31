@@ -1,7 +1,3 @@
-/**
- ** Copyright (c) 2017 Scortex SAS
- */
-
 #ifndef					__CORE__
 # define				__CORE__
 
