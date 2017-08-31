@@ -2,8 +2,8 @@
 BabelFish is a log system that have for purpose to be logging from all languages and to be reading &amp; rotating &amp; parsing logs. Next step will also be to monitor the processes that logs something.
 
 Actually contains:
-- libraries for Python, Bash, C, C++ and Javascript
-- examples for Python, Bash, C, C++ and Javascript
+- libraries for Python, Bash, C, C++ and Javascript(NodeJS)
+- examples for Python, Bash, C, C++ and Javascript(NodeJS)
 - rotate working, with optimisations
 - logs are nicely interpretated both in terminal view and ncurses view
 - ncurses view allows the user to change the severity filters on click
