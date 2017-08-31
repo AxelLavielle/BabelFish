@@ -2,7 +2,7 @@ import os
 import threading
 import time
 
-def     printlog(severity, component, message):
+def     printlog(severity, component, *args):
     processID = os.getpid()
     threadID = threading.current_thread()
     timestamp = time.time() * 1000
@@ -12,28 +12,30 @@ def     printlog(severity, component, message):
         except:
             pass
     try:
-        message = str(message)
+        message = "";
+        for arg in args:
+            message += str(arg)
     except:
         severity = "ERROR"
         message = "Message can not be converted as string."
     with open(os.getenv("HOME")+'/.logs/logs', 'ab') as f:
         f.write("[%d][%s][%s][%s][%s]--%s--\n"%(timestamp, severity, processID, threadID.ident, component, message))
 
-def     trace(component, message):
-    printlog("TRACE", component, message)
+def     trace(component, *args):
+    printlog("TRACE", component, *args)
 
-def     debug(component, message):
-    printlog("DEBUG", component, message)
+def     debug(component, *args):
+    printlog("DEBUG", component, *args)
 
-def     info(component, message):
-    printlog("INFO", component, message)
+def     info(component, *args):
+    printlog("INFO", component, *args)
 
-def     warning(component, message):
-    printlog("WARNING", component, message)
+def     warning(component, *args):
+    printlog("WARNING", component, *args)
 
-def     error(component, message):
-    printlog("ERROR", component, message)
+def     error(component, *args):
+    printlog("ERROR", component, *args)
 
-def     fatal(component, message):
-    printlog("FATAL", component, message)
+def     fatal(component, *args):
+    printlog("FATAL", component, *args)
 
