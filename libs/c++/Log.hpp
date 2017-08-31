@@ -28,7 +28,7 @@ enum		Severity
 # define	LOGFILE "logs"
 # define	TIMESTAMP std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
 
-inline const std::string	getFile()
+inline const std::string	___getFile__()
 {
   static std::string home = getpwuid(getuid())->pw_dir;
   static std::string filepath = home + "/.logs/";
@@ -86,7 +86,7 @@ public:
     if (!_written && _write)
       this->oss << "Empty message, please enter something using left shift (<<)";
     this->oss << "--" << std::endl;
-    outfile.open(getFile(), std::ofstream::out | std::ofstream::app);
+    outfile.open(___getFile__(), std::ofstream::out | std::ofstream::app);
     outfile << this->oss.str();
     outfile.close();
   }

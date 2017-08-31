@@ -2,6 +2,7 @@
 # define				__CORE__
 
 # include				<string.h>
+# include				<dirent.h>
 # include				"LogParser.hh"
 # include				"Rotator.hh"
 # include				"TermViewer.hh"
@@ -23,7 +24,7 @@ public:
 
 private: 
   void					usage(const char * const& binary) const;
-
+  void					deleteAll(const std::string &path) const;
   int					_speed;
   std::string				_filename;
   LogParser				_logs;
