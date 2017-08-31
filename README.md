@@ -21,7 +21,7 @@ no required arguments, here are the optional arguments:
 - `--component COMPONENT` or `-c` Add the component to the list of display, default is all.
 - `--severity SEVERITY` or `-e` Put a severity level in OFF mode and doesn't display it anymore.
 Levels: 0 - TRACE ; 1 - DEBUG ; 2 - INFO ; 3 - WARNING ; 4 - ERROR ; 5 - FATAL
-- `--delete` or `-d` Launch the program with a clean.
+- `--delete` or `-d` Delete precedents logs.
 - `--nolaunch` or `-n` Doesn't launch the logger.
 - `--help` or `-h` Display current helper.
 - `--view VIEWER` or `-v` Allows the user to choose the type of view he wants.

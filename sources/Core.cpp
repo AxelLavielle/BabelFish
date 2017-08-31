@@ -25,7 +25,7 @@ void						Core::usage(const char * const& binary) const
   std::cout << "'--component COMPONENT' or '-c' Add the component to the list of display, default is all." << std::endl;
   std::cout << "'--severity SEVERITY' or '-e' Put a severity level in OFF mode and doesn't display it anymore." << std::endl;
   std::cout << "Levels: 0 - TRACE ; 1 - DEBUG ; 2 - INFO ; 3 - WARNING ; 4 - ERROR ; 5 - FATAL" << std::endl;
-  std::cout << "'--delete' or '-d' Launch the program with a clean." << std::endl;
+  std::cout << "'--delete' or '-d' Delete precedents logs." << std::endl;
   std::cout << "'--nolaunch' or '-n' Doesn't launch the logger." << std::endl;
   std::cout << "'--help' or '-h' Display current helper." << std::endl;
   std::cout << "'--view VIEWER' or '-v' Allows the user to choose the type of view he wants." << std::endl;
