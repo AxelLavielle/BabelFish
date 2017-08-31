@@ -1,5 +1,5 @@
 # BabelFish
-BabelFish is a log system that have for purpose to be logging from all languages and to be reading &amp; rotating &amp; parsing logs. Next step will also be to monitor the processes that logs something.
+BabelFish is a log system that have for purpose to be logging from all languages and to be reading &amp; rotating &amp; parsing logs. Next step will also be to monitor the processes that logs something. I started this project inside the Scortex entreprise during my internship, and I will continue to develop and maintain it during the next years.
 
 ### Actually contains:
 - libraries for Python, Bash, C, C++ and Javascript(NodeJS)
