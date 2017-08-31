@@ -1,4 +1,4 @@
-#include	"Log.hpp"
+#include	"../../libs/c++/Log.hpp"
 
 int	main(int ac, char **av)
 {

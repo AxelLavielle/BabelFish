@@ -39,8 +39,6 @@ inline const std::string	getFile()
 
 class		Log
 {
-private:
-  std::ostringstream	oss;
 public:
   Log(const std::string &component, const Severity sev)
   {
@@ -48,6 +46,8 @@ public:
     pid_t			processID = getpid();
     std::thread::id	threadID = std::this_thread::get_id();
 
+    _write = true;
+    _written = false;
     this->oss << "[" << timestamp << "][";
     switch (sev)
       {
@@ -70,16 +70,21 @@ public:
 	this->oss << "FATAL";
 	break;
       default:
-	this->oss << "DEFAULT";
+	this->oss << "ERROR";
+	_write = false;
 	break;
       }
     this->oss << "][" << processID << "][" << threadID << "][" << component << "]--";
+    if (!_write)
+      this->oss << "Bad severity, please choose one of the following: TRACE DEBUG INFO WARNING ERROR FATAL";
   }
 
   ~Log()
   {
     std::ofstream outfile;
 
+    if (!_written && _write)
+      this->oss << "Empty message, please enter something using left shift (<<)";
     this->oss << "--" << std::endl;
     outfile.open(getFile(), std::ofstream::out | std::ofstream::app);
     outfile << this->oss.str();
@@ -88,9 +93,15 @@ public:
   template<typename T>
   Log	&	operator<<(T msg)
   {
-    this->oss << msg;
+    _written = true;
+    if (_write)
+      this->oss << msg;
     return (*this);
   }
+private:
+  std::ostringstream	oss;
+  bool			_write;
+  bool			_written;
 };
   
 #endif	//	__LOG__

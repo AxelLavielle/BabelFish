@@ -20,6 +20,7 @@
 # define		FATAL		5
 # define		DEFAULT		6
 
+# define		LOGDIR		"/.logs"
 # define		LOGFILE		"/.logs/logs"
 # define		TIMESTAMP	10
 
@@ -45,16 +46,19 @@ char			*strkitten(char *str, char *str2)
 char			*___getFile__()
 {
   static char		*filepath = NULL;
+  char			*tmp;
 
   if (filepath == NULL)
     {
       filepath = strkitten(getpwuid(getuid())->pw_dir, LOGFILE);
-      mkdir(filepath, 0755);
+      tmp = strkitten(getpwuid(getuid())->pw_dir, LOGDIR);
+      mkdir(tmp, 0755);
+      free(tmp);
     }
   return (filepath);
 }
 
-void			Log(const int severity, const char *component, char *format, ...)
+void			Log(int severity, char *component, char *format, ...)
 {
   va_list		ap;
   long			timestamp;
@@ -74,6 +78,11 @@ void			Log(const int severity, const char *component, char *format, ...)
   va_start(ap, format);
   vasprintf(&message, format, ap);
   va_end(ap);
+  if (!message[0])
+    {
+      message = strdup("Wrong message, maybe bad formatting or bad arguments");
+      severity = ERROR;
+    }
 
   // SEVERITY
   switch (severity)
@@ -97,7 +106,8 @@ void			Log(const int severity, const char *component, char *format, ...)
       sev = "FATAL";
       break;
     default:
-      sev = "DEFAULT";
+      sev = "ERROR";
+      message = strdup("Bad severity, please choose between the following: TRACE DEBUG INFO WARNING ERROR FATAL");
       break;
     }
 
@@ -108,11 +118,14 @@ void			Log(const int severity, const char *component, char *format, ...)
   threadID = syscall(SYS_gettid);
 
   // FORMAT LOGMESSAGE
-  asprintf(&logmessage, "[%ld][%s][%d][%d][%s]--%s--\n", timestamp, sev, processID, threadID, component, message);
+  if (component != "")
+    asprintf(&logmessage, "[%ld][%s][%d][%d][%s]--%s--\n", timestamp, sev, processID, threadID, component, message);
+  else
+    asprintf(&logmessage, "[%ld][%s][%d][%d][%s]--%s--\n", timestamp, "ERROR", processID, threadID, "Logger", "Bad component, please enter the name of you program");
   free(message);
 
   // WRITE IT
-  fd = open(___getFile__(), O_WRONLY | O_APPEND);
+  fd = open(___getFile__(), O_WRONLY | O_APPEND | O_CREAT, 0644);
   write(fd, logmessage, strlen(logmessage));
   close(fd);
   free(logmessage);

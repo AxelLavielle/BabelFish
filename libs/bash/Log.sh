@@ -25,21 +25,7 @@ function	FATAL {
 }
 
 function	Log {
-    if [[ $1 != TRACE && $1 != DEBUG && $1 != INFO && $1 != WARNING && $1 != ERROR && $1 != FATAL ]]
-    then
-	echo "Severity is not okay, please use: TRACE DEBUG INFO WARNING ERROR FATAL as first argument.";
-	return
-    fi
-    if [[ $2 == "" ]]
-    then
-	echo "Component is not okay, please enter the name of your component as second argument.";
-	return
-    fi
-    if [[ $3 == "" ]]
-    then
-	echo "Message is not okay, please enter a message as third argument.";
-	return
-    fi
+    mkdir ~/.logs > /dev/null 2>&1
     timestamp=`date +%s%3N`
     severity=$1
     processID=$BASHPID
@@ -48,5 +34,21 @@ function	Log {
     shift
     shift
     message=$@
+    if [[ $severity != TRACE && $severity != DEBUG && $severity != INFO && $severity != WARNING && $severity != ERROR && $severity != FATAL ]]
+    then
+	severity=ERROR;
+	message="Severity is not okay, please use: TRACE DEBUG INFO WARNING ERROR FATAL as first argument.";
+    fi
+    if [[ $component == "" ]]
+    then
+	severity=ERROR;
+	component="Logger";
+	message="Component is not okay, please enter the name of your component as second argument.";
+    fi
+    if [[ $message == "" ]]
+    then
+	severity=ERROR;
+	message="Message is not okay, please enter a message as third argument.";
+    fi
     echo "["$timestamp"]["$severity"]["$processID"]["$threadID"]["$component"]--"$message"--" >> ~/.logs/logs
 }
