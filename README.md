@@ -1,7 +1,7 @@
 # BabelFish
 BabelFish is a log system that have for purpose to be logging from all languages and to be reading &amp; rotating &amp; parsing logs. Next step will also be to monitor the processes that logs something.
 
-Actually contains:
+###Actually contains:
 - libraries for Python, Bash, C, C++ and Javascript(NodeJS)
 - examples for Python, Bash, C, C++ and Javascript(NodeJS)
 - rotate working, with optimisations
@@ -10,10 +10,10 @@ Actually contains:
 - can be filtered by timestamp, component, severity, ... (`-h` for more informations)
 - bunch of arguments fully handled
 
-Specificities:
+###Specificities:
 - C++ needs to be compiled with `-pthread -std=c++11`
 
-Usage for ./BabelFish:
+###Usage for ./BabelFish:
 no required arguments, here are the optional arguments:
 - '--speed TIMEINMS' or '-s' Maximum speed for refresh, Default value is 1.
 - '--timestamp_begin TIME' or '-tb' Minimum timestamp of display.
