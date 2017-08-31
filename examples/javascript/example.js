@@ -1,4 +1,4 @@
-const log = require("../../libs/Log");
+const Log = require("../../libs/javascript/Log");
 
 Log.trace("LOESS", "Hello World !");
 Log.debug("LOESS", "Hello World !");
