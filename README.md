@@ -10,6 +10,9 @@ Actually contains:
 - can be filtered by timestamp, component, severity, ... (-h for more informations)
 - bunch of arguments fully handled
 
+Specificities:
+- C++ needs to be compiled with `-pthread -std=c++11`
+
 Usage for ./BabelFish:
 no required arguments, here are the optional arguments:
 - '--speed TIMEINMS' or '-s' Maximum speed for refresh, Default value is 1.
