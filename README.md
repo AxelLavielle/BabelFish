@@ -7,7 +7,7 @@ Actually contains:
 - rotate working, with optimisations
 - logs are nicely interpretated both in terminal view and ncurses view
 - ncurses view allows the user to change the severity filters on click
-- can be filtered by timestamp, component, severity, ... (-h for more informations)
+- can be filtered by timestamp, component, severity, ... (`-h` for more informations)
 - bunch of arguments fully handled
 
 Specificities:
