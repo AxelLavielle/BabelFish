@@ -14,7 +14,7 @@ CXXFLAGS	=	-W -Wextra -Wall -Werror -ansi -pedantic
 CXXFLAGS	+=	-pthread --std=c++11 -Iincludes -Ilibs/c++
 LDFLAGS		=	-lncurses
 
-CXX		=	g++
+CXX		=	clang++
 
 NAME		=	BabelFish
 
