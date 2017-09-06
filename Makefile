@@ -10,9 +10,9 @@ SRC		=	$(SRCPATH)/Core.cpp		\
 
 OBJ		=	${SRC:.cpp=.o}
 
-CXXFLAGS	=	-W -Wextra -Wall -Werror -ansi -pedantic
+CXXFLAGS	+=	-W -Wextra -Wall -Werror -ansi -pedantic
 CXXFLAGS	+=	-pthread --std=c++11 -Iincludes -Ilibs/c++
-LDFLAGS		=	-lncurses
+LDFLAGS		+=	-lncurses
 
 CXX		=	clang++
 
