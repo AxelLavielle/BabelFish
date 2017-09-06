@@ -1,6 +1,12 @@
 # BabelFish
 BabelFish is a log system that have for purpose to be logging from all languages and to be reading &amp; rotating &amp; parsing logs. Next step will also be to monitor the processes that logs something. I started this project during my internship at **Scortex**, and will continue to develop and maintain it during the next years.
 
+### Requirement:
+- Something to compile c++ (g++, clang++, ..)
+- NCurses 5.0 or more
+- Thread library (pthread) for C++
+- C++11
+
 ### Actually contains:
 - libraries for Python, Bash, C, C++ and Javascript(NodeJS)
 - examples for Python, Bash, C, C++ and Javascript(NodeJS)
