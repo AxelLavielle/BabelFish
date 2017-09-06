@@ -25,6 +25,7 @@ no required arguments, here are the optional arguments:
 - `--timestamp_begin TIME` or `-tb` Minimum timestamp of display.
 - `--timestamp_end TIME` or `-te` Maximum timestamp of display.
 - `--component COMPONENT` or `-c` Add the component to the list of display, default is all.
+- `--line LINE` or `-l` Set the number of line to keep, oldest lines are deleted during rotate.
 - `--severity SEVERITY` or `-e` Put a severity level in OFF mode and doesn't display it anymore.
 Levels: 0 - TRACE ; 1 - DEBUG ; 2 - INFO ; 3 - WARNING ; 4 - ERROR ; 5 - FATAL
 - `--delete` or `-d` Delete precedents logs.
