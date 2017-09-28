@@ -265,10 +265,9 @@ void				CursesViewer::wait(const long ts)
       c[5] = 255;
 
       first = false;
-      ::timeout(ts - TIMESTAMP);
+      ::timeout((ts - TIMESTAMP > 100 ? ts - TIMESTAMP : 0));
       c[0] = ::getch();
       ::timeout(0);
-
       switch (c[0])
       	{
       	case 27: // SPECIAL KEY
@@ -371,4 +370,5 @@ void				CursesViewer::wait(const long ts)
       	  break;
       	}
     }
+  std::cout << "I'm done with key getters" << std::endl;
 }
