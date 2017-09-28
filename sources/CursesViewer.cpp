@@ -103,7 +103,6 @@ void				CursesViewer::printOneLog(int i, const t_log &log)
   column += oss.str().size();
   oss.str("");
   oss << std::setfill(' ') << std::left << log.severityStr;
-    //ProcessID
   ::wattron(_logWindow, ((log.severity == TRACE) ? (GREENB)
 			 : ((log.severity == DEBUG) ? (BLUEB)
 			    : ((log.severity == INFO) ? (CYANB)
@@ -116,12 +115,14 @@ void				CursesViewer::printOneLog(int i, const t_log &log)
 			       : ((log.severity == WARNING) ? (YELLOWB)
 				  : ((log.severity == ERROR) ? (REDB) : (MAGENTAB)))))));
   column += oss.str().size();
+    //ProcessID
   oss.str("");
   oss << " | ";
   oss.width(5);
-  oss << std::setfill('0') << std::right << log.processID << " | "
+  oss << std::setfill('0') << std::right << log.processID << " | 0x";
     //ThreadID
-      << "0x" << std::hex << log.threadID << " | ";
+  oss.width(12);
+  oss << std::setfill('0') << std::hex << log.threadID << " | ";
     //Component
   oss.width(12);
   oss << std::setfill(' ') << std::left << log.component

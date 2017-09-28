@@ -32,9 +32,10 @@ const std::string		TermViewer::logToString(const t_log &log) const
   oss << std::setfill(' ') << std::left << log.severityStr << NEUTRAL << " | ";
     //ProcessID
   oss.width(5);
-  oss << std::setfill('0') << std::right << log.processID << " | "
+  oss << std::setfill('0') << std::right << log.processID << " | 0x";
     //ThreadID
-      << "0x" << std::hex << log.threadID << " | ";
+  oss.width(12);
+  oss << std::setfill('0') << std::hex << log.threadID << " | ";
     //Component
   oss.width(12);
   oss << std::setfill(' ') << std::left << log.component
