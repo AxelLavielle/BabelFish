@@ -4,13 +4,18 @@ CursesViewer::CursesViewer()
 {
   // Initialisation
   _save = ::newterm(getenv("TERM"), stdout, stdin); // Initialises the window
+  if (_save == 0)
+    {
+      std::cerr << "Error on initializing term, please check that your $TERM is correct." << std::endl;
+      exit(1);
+    }
   ::clear(); // Clear the terminal
   ::cbreak(); // Allows to get char / char instead of waiting a carriage return
   ::noecho(); // Allows to not print the characters typed by the user
   ::curs_set(0); // Allows to remove the cursor display
   ::start_color(); // ALlows to start color mode
   ::mousemask(ALL_MOUSE_EVENTS, NULL);
-
+  
   // Creation of the windows
   getmaxyx(::stdscr, _endY, _endX);
   _headerWindow = ::newwin(3, _endX, 0, 0);
@@ -370,5 +375,4 @@ void				CursesViewer::wait(const long ts)
       	  break;
       	}
     }
-  std::cout << "I'm done with key getters" << std::endl;
 }
